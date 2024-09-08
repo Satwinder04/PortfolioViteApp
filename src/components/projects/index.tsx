@@ -74,79 +74,19 @@ const Projects: React.FC<ProjectsSectionProps> = ({
   const projects: Project[] = 
   [
     {
-      title: "BodyFuel",
-      description:"gym website",
+      title: "YOGA",
+      description: "MERN Stack WebSite",
+      link: "https://github.com/Satwinder04/yoga-me",
       category: "Web Development / Design",
-      link: "https://satwinder04.github.io/body_fuel/",
-      image: "./img/portfolio/igym.jpg",
-      imageDetail: "./img/portfolio/iDgym.jpg",
-      year: "2019",
+      image: "./img/portfolio/iyoga.jpg",
+      imageDetail: "./img/portfolio/idyoga.jpg",
+      year: "2024",
       color: "77, 128, 237",
       technologies: {
-        frontend: "HTML | CSS",
-        backend: "",
+        frontend: "ReactJS | Tailwind-CSS | MaterialUI | Locomotive",
+        backend: "MongoDB | ExpressJS | NodeJS ",
       } ,
-      number: "01",
-    },
-    {
-      title: "FashionHub",
-      description: "WebSite UI",
-      category: "Web Development / Design",
-      link: "https://satwinder04.github.io/fashion_hub/",
-      image: "./img/portfolio/ifashion.jpg",
-      imageDetail: "./img/portfolio/idfasion.jpg",
-      year: "2020",
-      color: "77, 128, 237",
-      technologies: {
-        frontend: "HTML | CSS | JS | BOOTSTRAP",
-        backend: "",
-      } ,
-      number: "02",
-    },
-    {
-      title: "Code Soul",
-      description: "WebSite UI",
-      link: "https://satwinder04.github.io/",
-      category: "Web Development / Design",
-      image: "./img/portfolio/icode.jpg",
-      imageDetail: "./img/portfolio/idcode.jpg",
-      year: "2020",
-      color: "77, 128, 237",
-      technologies: {
-        frontend: "HTML | CSS | BOOTSTRAP",
-        backend: "",
-      } ,
-      number: "03"
-    },
-    {
-      title: "Spotify UI",
-      description: "WebSite UI",
-      link: "https://github.com/Satwinder04/spotify-clone",
-      category: "Web Development / Design",
-      image: "./img/portfolio/isong.jpg",
-      imageDetail: "./img/portfolio/idsong.jpg",
-      year: "2021",
-      color: "77, 128, 237",
-      technologies: {
-        frontend: "ReactJS | Tailwind-CSS",
-        backend: "",
-      } ,
-      number: "04",
-    },
-    {
-      title: "Coffee",
-      description: "WebSite UI",
-      link: "https://satwinder04.github.io/SunSetCafe/",
-      category: "Web Development / Design",
-      image:"./img/portfolio/icoffee.jpg",
-      imageDetail: "./img/portfolio/idcoffee.jpg",
-      year: "2022",
-      color: "77, 128, 237",
-      technologies: {
-        frontend: "HTML | CSS",
-        backend: "",
-      } ,
-      number: "05",
+      number: "07",
     },
     {
       title: "Rocket",
@@ -164,21 +104,81 @@ const Projects: React.FC<ProjectsSectionProps> = ({
       number: "06",
     },
     {
-      title: "YOGA",
-      description: "MERN Stack WebSite",
-      link: "https://github.com/Satwinder04/yoga-me",
+      title: "Coffee",
+      description: "WebSite UI",
+      link: "https://satwinder04.github.io/SunSetCafe/",
       category: "Web Development / Design",
-      image: "./img/portfolio/iyoga.jpg",
-      imageDetail: "./img/portfolio/idyoga.jpg",
-      year: "2024",
+      image:"./img/portfolio/icoffee.jpg",
+      imageDetail: "./img/portfolio/idcoffee.jpg",
+      year: "2022",
       color: "77, 128, 237",
       technologies: {
-        frontend: "ReactJS | Tailwind-CSS | MaterialUI | Locomotive",
-        backend: "MongoDB | ExpressJS | NodeJS ",
+        frontend: "HTML | CSS",
+        backend: "",
       } ,
-      number: "07",
+      number: "05",
+    },
+    {
+      title: "Spotify UI",
+      description: "WebSite UI",
+      link: "https://github.com/Satwinder04/spotify-clone",
+      category: "Web Development / Design",
+      image: "./img/portfolio/isong.jpg",
+      imageDetail: "./img/portfolio/idsong.jpg",
+      year: "2021",
+      color: "77, 128, 237",
+      technologies: {
+        frontend: "ReactJS | Tailwind-CSS",
+        backend: "",
+      } ,
+      number: "04",
+    },
+    {
+      title: "Code Soul",
+      description: "WebSite UI",
+      link: "https://satwinder04.github.io/",
+      category: "Web Development / Design",
+      image: "./img/portfolio/icode.jpg",
+      imageDetail: "./img/portfolio/idcode.jpg",
+      year: "2020",
+      color: "77, 128, 237",
+      technologies: {
+        frontend: "HTML | CSS | BOOTSTRAP",
+        backend: "",
+      } ,
+      number: "03"
+    },
+    {
+      title: "FashionHub",
+      description: "WebSite UI",
+      category: "Web Development / Design",
+      link: "https://satwinder04.github.io/fashion_hub/",
+      image: "./img/portfolio/ifashion.jpg",
+      imageDetail: "./img/portfolio/idfasion.jpg",
+      year: "2020",
+      color: "77, 128, 237",
+      technologies: {
+        frontend: "HTML | CSS | JS | BOOTSTRAP",
+        backend: "",
+      } ,
+      number: "02",
+    },
+    {
+      title: "BodyFuel",
+      description:"gym website",
+      category: "Web Development / Design",
+      link: "https://satwinder04.github.io/body_fuel/",
+      image: "./img/portfolio/igym.jpg",
+      imageDetail: "./img/portfolio/iDgym.jpg",
+      year: "2019",
+      color: "77, 128, 237",
+      technologies: {
+        frontend: "HTML | CSS",
+        backend: "",
+      } ,
+      number: "01",
     }
-  ];
+];
 
   useEffect(() => {
     if (isProjectsInView && !hasAnimated) {
@@ -417,7 +417,7 @@ const Projects: React.FC<ProjectsSectionProps> = ({
                     </h1>
                   </div>
                   <p className="poppins-extralight text-lg pr-2 group-hover:text-gray-2 group-hover:pr-4 transition-all">
-                    {project.category}
+                    {project.category} | {project.year} 
                   </p>
                 </div>
                 <hr className="w-full border-gray-1 group-hover:border-gray-4 transition-colors"></hr>
