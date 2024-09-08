@@ -1,5 +1,5 @@
 import { MotionValue, motion, useAnimationControls } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import Magnetic from "../Magnetic";
 
