@@ -195,7 +195,7 @@ function App() {
                 opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
               }}
             >
-              Innovative web developer crafting unique user experiences.
+              Passionate web designer delivering impactful user experiences.
             </motion.p>
           </motion.div>
         </motion.div>
