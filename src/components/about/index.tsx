@@ -122,7 +122,7 @@ const About: React.FC<AboutSectionProps> = ({
             className={`flex flex-col gap-y-4 w-1/2 khula-light text-2xl ${isMobile && "mt-8 text-lg w-full"}`}
           >
             <motion.p variants={fadeInUpVariants} custom={4}>
-              I'm a 23 year-old passionate fullstack web developer dedicated to
+              I'm a passionate web developer dedicated to
               turning ideas into creative solutions. I specialize in creating
               seamless and intuitive user experiences.
             </motion.p>
