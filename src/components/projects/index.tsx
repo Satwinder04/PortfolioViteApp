@@ -86,7 +86,7 @@ const Projects: React.FC<ProjectsSectionProps> = ({
         frontend: "ReactJS | Tailwind-CSS | MaterialUI | Locomotive",
         backend: "MongoDB | ExpressJS | NodeJS ",
       } ,
-      number: "07",
+      number: "01",
     },
     {
       title: "Rocket",
@@ -101,7 +101,7 @@ const Projects: React.FC<ProjectsSectionProps> = ({
         frontend: "HTML | CSS | JS | GSAP",
         backend: "",
       } ,
-      number: "06",
+      number: "02",
     },
     {
       title: "Coffee",
@@ -116,7 +116,7 @@ const Projects: React.FC<ProjectsSectionProps> = ({
         frontend: "HTML | CSS",
         backend: "",
       } ,
-      number: "05",
+      number: "03",
     },
     {
       title: "Spotify UI",
@@ -146,7 +146,7 @@ const Projects: React.FC<ProjectsSectionProps> = ({
         frontend: "HTML | CSS | BOOTSTRAP",
         backend: "",
       } ,
-      number: "03"
+      number: "05"
     },
     {
       title: "FashionHub",
@@ -161,7 +161,7 @@ const Projects: React.FC<ProjectsSectionProps> = ({
         frontend: "HTML | CSS | JS | BOOTSTRAP",
         backend: "",
       } ,
-      number: "02",
+      number: "06",
     },
     {
       title: "BodyFuel",
@@ -176,7 +176,7 @@ const Projects: React.FC<ProjectsSectionProps> = ({
         frontend: "HTML | CSS",
         backend: "",
       } ,
-      number: "01",
+      number: "07",
     }
 ];
 
