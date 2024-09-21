@@ -1,11 +1,10 @@
 import { MotionValue, motion } from "framer-motion";
 
 export default function SectionSpacer({
-  backgroundGradient,
-  height,
+  backgroundGradient
+
 }: {
   backgroundGradient: MotionValue<string>;
-  height: number;
 }) {
   return (
     <motion.div
