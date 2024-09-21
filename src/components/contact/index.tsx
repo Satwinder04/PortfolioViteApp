@@ -66,7 +66,15 @@ const Contact: React.FC<ContactSectionProps> = ({
       >
         <Magnetic>
           <a
-            href="satwindersalan04@gmail.com"
+            href={`mailto:satwindersalan04@gmail.com?subject=Let's%20Collaborate&body=Hi%20Satwinder,%0A%0AI'd%20like%20to%20discuss%20a%20potential%20collaboration.%20Here%20are%20some%20details:%0A%0A-%20Project%20idea:%0A-%20Timeline:%0A-%20Budget:%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards,`}
+            onClick={(e) => {
+              if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                e.preventDefault();
+                window.open('https://mail.google.com/mail/?view=cm&fs=1&to=satwindersalan04@gmail.com&su=Let\'s%20Collaborate&body=Hi%20Satwinder,%0A%0AI\'d%20like%20to%20discuss%20a%20potential%20collaboration.%20Here%20are%20some%20details:%0A%0A-%20Project%20idea:%0A-%20Timeline:%0A-%20Budget:%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards,', '_blank');
+              }
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex gap-x-2 rounded-full border-dark border-2 px-2 py-1"
           >
             <Mail />

@@ -188,7 +188,19 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
           transition={{ delay: 0.5, duration: 0.3 }}
         >
           <p className="text-sm text-gray-600">Get in touch</p>
-          <a href="mailto:info@bencodes.de" className="text-lg hover:underline">
+
+          <a
+            href={`mailto:satwindersalan04@gmail.com?subject=Let's%20Collaborate&body=Hi%20Satwinder,%0A%0AI'd%20like%20to%20discuss%20a%20potential%20collaboration.%20Here%20are%20some%20details:%0A%0A-%20Project%20idea:%0A-%20Timeline:%0A-%20Budget:%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards,`}
+            onClick={(e) => {
+              if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                e.preventDefault();
+                window.open('https://mail.google.com/mail/?view=cm&fs=1&to=satwindersalan04@gmail.com&su=Let\'s%20Collaborate&body=Hi%20Satwinder,%0A%0AI\'d%20like%20to%20discuss%20a%20potential%20collaboration.%20Here%20are%20some%20details:%0A%0A-%20Project%20idea:%0A-%20Timeline:%0A-%20Budget:%0A%0ALooking%20forward%20to%20hearing%20from%20you!%0A%0ABest%20regards,', '_blank');
+              }
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+            
+          >
             satwindersalan04@gmail.com
           </a>
         </motion.div>

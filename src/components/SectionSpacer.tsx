@@ -9,7 +9,7 @@ export default function SectionSpacer({
 }) {
   return (
     <motion.div
-      style={{ height: height + "px", background: backgroundGradient }}
+      style={{ background: backgroundGradient }}
       className="w-screen border-none outline-none"
     ></motion.div>
   );
