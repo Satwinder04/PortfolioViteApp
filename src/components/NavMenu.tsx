@@ -126,6 +126,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
                     link: "https://www.instagram.com/satwinder.salan/",
                   },
                   { name: "Github", link: "https://github.com/Satwinder04" },
+                  { name: "CodePen", link: "https://codepen.io/Satwinder04/pens/showcase" },
                 ].map((item, index) => (
                   <motion.li
                     key={item.name}
