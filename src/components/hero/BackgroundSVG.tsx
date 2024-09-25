@@ -14,7 +14,7 @@ const drawVariant = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: {
     pathLength: 1,
-    opacity: 1,
+    opacity: 0.3,
     transition: {
       pathLength: { type: "spring", duration: 5, bounce: 0, delay: 0.5 },
       opacity: { duration: 0.8, ease: "easeInOut", delay: 0.5 },

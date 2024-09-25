@@ -207,7 +207,7 @@ function App() {
           />
         </div>
 
-        <SectionSpacer height={300} backgroundGradient={backgroundGradient} />
+        <SectionSpacer height={100} backgroundGradient={backgroundGradient} />
 
         <div ref={projectsRef} id="projects" className="relative">
           <Projects
