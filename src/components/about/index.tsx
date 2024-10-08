@@ -124,13 +124,10 @@ const About: React.FC<AboutSectionProps> = ({
             <motion.p variants={fadeInUpVariants} custom={4}>
               I'm a passionate web developer dedicated to
               turning ideas into creative solutions. I specialize in creating
-              seamless and intuitive user experiences.
+              seamless and interactive user experiences.
             </motion.p>
             <motion.p variants={fadeInUpVariants} custom={5}>
-              I'm involved in every step of the process: from discovery and
-              design to development, testing, and deployment. I focus on
-              delivering high-quality, scalable results that drive positive user
-              experiences.
+            In addition to development, I also test web applications to ensure functionality, performance, and quality, identifying issues early to enhance the user experience and reliability.
             </motion.p>
           </div>
           {isMobile && (
