@@ -127,7 +127,8 @@ const About: React.FC<AboutSectionProps> = ({
               seamless and interactive user experiences.
             </motion.p>
             <motion.p variants={fadeInUpVariants} custom={5}>
-            In addition to development, I also test web applications to ensure functionality, performance, and quality, identifying issues early to enhance the user experience and reliability.
+            In addition to development, I also test web applications 
+            to ensure functionality, performance, and quality, identifying issues early to enhance the user experience and reliability.
             </motion.p>
           </div>
           {isMobile && (
