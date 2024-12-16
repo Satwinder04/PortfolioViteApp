@@ -118,6 +118,10 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
                     link: "https://www.linkedin.com/in/satwindersalan/",
                   },
                   {
+                    name: "LeetCode",
+                    link: "https://leetcode.com/u/Satwinder04/",
+                  },
+                  {
                     name: "UIverse",
                     link: "https://uiverse.io/profile/Satwinder04",
                   },
