@@ -122,14 +122,17 @@ const About: React.FC<AboutSectionProps> = ({
             className={`flex flex-col gap-y-4 w-1/2 khula-light text-2xl ${isMobile && "mt-8 text-lg w-full"}`}
           >
             <motion.p variants={fadeInUpVariants} custom={4}>
+            I am a passionate Quality Engineer dedicated to ensuring the highest standards of functionality, performance, and quality in web applications. I specialize in identifying issues early to enhance the user experience and reliability, ensuring seamless and error-free applications.
+            </motion.p>
+            {/* <motion.p variants={fadeInUpVariants} custom={4}>
               I'm a passionate web developer dedicated to
               turning ideas into creative solutions. I specialize in creating
               seamless and interactive user experiences.
-            </motion.p>
-            <motion.p variants={fadeInUpVariants} custom={5}>
+            </motion.p> */}
+            {/* <motion.p variants={fadeInUpVariants} custom={5}>
             In addition to development, I also test web applications 
             to ensure functionality, performance, and quality, identifying issues early to enhance the user experience and reliability.
-            </motion.p>
+            </motion.p> */}
           </div>
           {isMobile && (
             <motion.button
