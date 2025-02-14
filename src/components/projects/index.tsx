@@ -11,6 +11,7 @@ import Curve from "./Curve";
 import Overlay from "./Overlay";
 import { X } from "lucide-react";
 import { useLenis } from "@studio-freight/react-lenis";
+import { delay } from "lodash";
 
 type ProjectsSectionProps = {
   isProjectsInView: boolean;
@@ -38,7 +39,8 @@ const fadeInUpVariants = {
     y: 0,
     transition: {
       duration: 0.3,
-      ease: "easeOut"
+      ease: "easeOut",
+      delay: custom* 0
     },
   }),
   exit: {
