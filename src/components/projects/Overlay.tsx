@@ -62,17 +62,10 @@ export default function Overlay({
               <hr className="w-[350px] border-gray-2 mt-2" />
               <p className="poppins-regular text-base text-gray-1 mt-8 mb-[4vh] max-w-[500px] w-full flex-col flex">
                 <p className="flex gap-x-1 poppins-regular text-base text-gray-1">
-                  <span className="khula-light mt-[3px]">Frontend: </span>
-                  {project.technologies.frontend}
+                  <span className="khula-light mt-[3px]">Teschnologies: </span>
+                  {project.technologies}
                 </p>
-                <p className="flex gap-x-1 poppins-regular text-base text-gray-1">
-                  <span className="khula-light mt-[3px]">Backend: </span>
-                  {project.technologies.backend.includes("Not Involved") ? (
-                    <i>Not Involved</i>
-                  ) : (
-                    project.technologies.backend
-                  )}
-                </p>
+                
               </p>
             </div>
           </div>

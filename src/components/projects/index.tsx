@@ -26,7 +26,7 @@ export type Project = {
   image: string;
   imageDetail: string;
   description: string;
-  technologies: { frontend: string; backend: string };
+  technologies: string;
   color: string;
   link: string;
 };
@@ -37,16 +37,15 @@ const fadeInUpVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      ease: "easeOut",
-      delay: custom * 0.2,
+      duration: 0.3,
+      ease: "easeOut"
     },
   }),
   exit: {
-    opacity: 0,
+    opacity: 0.6,
     y: 50,
     transition: {
-      duration: 0.4,
+      duration: 0.3,
       ease: "easeIn",
     },
   },
@@ -74,6 +73,30 @@ const Projects: React.FC<ProjectsSectionProps> = ({
   const projects: Project[] = 
   [
     {
+      title: "BTES",
+      description: "Allure report on BLMS",
+      link: "https://github.com/Satwinder04/BTESAllure",
+      category: "Web application Testing",
+      image: "./img/portfolio/btes.png",
+      imageDetail: "./img/portfolio/btes.png",
+      year: "2024",
+      color: "77, 128, 237",
+      technologies: "Selenium | Allure Reports | Python",
+      number: "01",
+    },
+    {
+      title: "Portfolio Testing",
+      description: "Validating that all links are working properly",
+      link: "https://github.com/Satwinder04/Portfolio-Testing",
+      category: "Web application Testing",
+      image: "./img/portfolio/port.png",
+      imageDetail: "./img/portfolio/port.png",
+      year: "2024",
+      color: "77, 128, 237",
+      technologies: "Selenium | Allure Reports | Python",
+      number: "02",
+    },
+    {
       title: "YOGA",
       description: "MERN Stack WebSite",
       link: "https://github.com/Satwinder04/yoga-me",
@@ -82,11 +105,8 @@ const Projects: React.FC<ProjectsSectionProps> = ({
       imageDetail: "./img/portfolio/idyoga.jpg",
       year: "2024",
       color: "77, 128, 237",
-      technologies: {
-        frontend: "ReactJS | Tailwind-CSS | MaterialUI | Locomotive",
-        backend: "MongoDB | ExpressJS | NodeJS ",
-      } ,
-      number: "01",
+      technologies: "ReactJS | Tailwind-CSS | MaterialUI | Locomotive | MongoDB | ExpressJS | NodeJS",
+      number: "03",
     },
     {
       title: "Rocket",
@@ -97,11 +117,8 @@ const Projects: React.FC<ProjectsSectionProps> = ({
       imageDetail: "./img/portfolio/idrocket.jpg",
       year: "2024",
       color: "77, 128, 237",
-      technologies: {
-        frontend: "HTML | CSS | JS | GSAP",
-        backend: "",
-      } ,
-      number: "02",
+      technologies: "HTML | CSS | JS | GSAP",
+      number: "04",
     },
     {
       title: "Coffee",
@@ -112,11 +129,8 @@ const Projects: React.FC<ProjectsSectionProps> = ({
       imageDetail: "./img/portfolio/idcoffee.jpg",
       year: "2022",
       color: "77, 128, 237",
-      technologies: {
-        frontend: "HTML | CSS",
-        backend: "",
-      } ,
-      number: "03",
+      technologies: "HTML | CSS",
+      number: "05",
     },
     {
       title: "Spotify UI",
@@ -127,11 +141,8 @@ const Projects: React.FC<ProjectsSectionProps> = ({
       imageDetail: "./img/portfolio/idsong.jpg",
       year: "2021",
       color: "77, 128, 237",
-      technologies: {
-        frontend: "ReactJS | Tailwind-CSS",
-        backend: "",
-      } ,
-      number: "04",
+      technologies: "ReactJS | Tailwind-CSS",
+      number: "06",
     },
     {
       title: "Code Soul",
@@ -142,11 +153,8 @@ const Projects: React.FC<ProjectsSectionProps> = ({
       imageDetail: "./img/portfolio/idcode.jpg",
       year: "2020",
       color: "77, 128, 237",
-      technologies: {
-        frontend: "HTML | CSS | BOOTSTRAP",
-        backend: "",
-      } ,
-      number: "05"
+      technologies: "HTML | CSS | BOOTSTRAP",
+      number: "07"
     },
     {
       title: "FashionHub",
@@ -157,11 +165,8 @@ const Projects: React.FC<ProjectsSectionProps> = ({
       imageDetail: "./img/portfolio/idfasion.jpg",
       year: "2020",
       color: "77, 128, 237",
-      technologies: {
-        frontend: "HTML | CSS | JS | BOOTSTRAP",
-        backend: "",
-      } ,
-      number: "06",
+      technologies: "HTML | CSS | JS | BOOTSTRAP",
+      number: "08",
     },
     {
       title: "BodyFuel",
@@ -172,13 +177,12 @@ const Projects: React.FC<ProjectsSectionProps> = ({
       imageDetail: "./img/portfolio/iDgym.jpg",
       year: "2019",
       color: "77, 128, 237",
-      technologies: {
-        frontend: "HTML | CSS",
-        backend: "",
-      } ,
-      number: "07",
+      technologies: "HTML | CSS",
+      number: "09",
     }
 ];
+
+
 
   useEffect(() => {
     if (isProjectsInView && !hasAnimated) {

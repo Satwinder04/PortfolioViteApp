@@ -125,10 +125,6 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
                     name: "UIverse",
                     link: "https://uiverse.io/profile/Satwinder04",
                   },
-                  {
-                    name: "Instagram",
-                    link: "https://www.instagram.com/satwinder.salan/",
-                  },
                   { name: "Github", link: "https://github.com/Satwinder04" },
                   { name: "CodePen", link: "https://codepen.io/Satwinder04/pens/showcase" },
                 ].map((item, index) => (
