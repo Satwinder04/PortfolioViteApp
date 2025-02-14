@@ -11,7 +11,7 @@ import Curve from "./Curve";
 import Overlay from "./Overlay";
 import { X } from "lucide-react";
 import { useLenis } from "@studio-freight/react-lenis";
-import { delay } from "lodash";
+// import { delay } from "lodash";
 
 type ProjectsSectionProps = {
   isProjectsInView: boolean;
