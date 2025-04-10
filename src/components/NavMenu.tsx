@@ -2,6 +2,7 @@ import React from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { X } from "lucide-react";
 import { useLenis } from "@studio-freight/react-lenis";
+import { useNavigate } from "react-router-dom";
 
 type NavMenuProps = {
   isOpen: boolean;
@@ -10,14 +11,20 @@ type NavMenuProps = {
 
 const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
   const { scrollY } = useScroll();
-
   const lenis = useLenis();
+  const navigate = useNavigate();
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string,
+    isGallery = false
   ) => {
     e.preventDefault();
+    if (isGallery) {
+      navigate('/gallery');
+      onClose();
+      return;
+    }
     if (lenis) {
       const target = document.getElementById(targetId);
       if (target) {
@@ -26,6 +33,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
     }
     onClose();
   };
+
   return (
     <>
       {/* Backdrop */}
@@ -155,24 +163,20 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
               <h3 className="text-lg khula-light ">Menu</h3>
               <ul className="space-y-2">
                 {[
-                  { name: "About Me", id: "about" },
-                  { name: "Projects", id: "projects" },
-                  /* { name: "Experience", id: "about" }, */
-                  { name: "Contact", id: "contact" },
+                  { name: "About Me", id: "about", isGallery: false },
+                  { name: "Projects", id: "projects", isGallery: false },
+                  { name: "Gallery", id: "gallery", isGallery: true },
+                  { name: "Contact", id: "contact", isGallery: false },
                 ].map((item, index) => (
                   <motion.li
                     key={item.name}
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.4 + index * 0.05, duration: 0.3 }}
-                    onClick={() =>
-                      window.innerWidth <= 768 &&
-                      document.getElementById(item.id)?.scrollIntoView()
-                    }
                   >
                     <a
-                      href={`#${item.id}`}
-                      onClick={(e) => handleNavClick(e, item.id)}
+                      href={item.isGallery ? "/gallery" : `#${item.id}`}
+                      onClick={(e) => handleNavClick(e, item.id, item.isGallery)}
                       className={`text-[2.5rem] ${
                         !(window.innerWidth <= 768) && "hover:left-2"
                       } left-0 relative transition-[left] duration-300 ease-in-out`}

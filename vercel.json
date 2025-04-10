@@ -1,6 +1,10 @@
 {
     "routes" : [
         {
+            "src" : "/gallery",
+            "dest" : "/gallery"
+        },
+        {
             "src" : "/[^.]+",
             "dest" : "/"
         }

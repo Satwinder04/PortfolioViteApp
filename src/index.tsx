@@ -4,11 +4,16 @@ import App from "./App.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./assets/globals.scss";
 import Redirect from "./components/Redirect.tsx";
+import GalleryPage from "./pages/GalleryPage.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/gallery",
+    element: <GalleryPage />,
   },
   {
     path: "*",

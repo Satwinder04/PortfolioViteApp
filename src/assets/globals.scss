@@ -20,7 +20,7 @@
 }
 /* width */
 ::-webkit-scrollbar {
-  background: #00000000;
+  background: #d7d7d700;
   width: 10px;
 }
 
@@ -32,15 +32,16 @@
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(0, 0, 0); 
-  // border-radius: 10px;
+  background: rgba(202, 202, 202, 0.324); 
+  border-radius: 10px;
   transition: all 5s ease-in-out;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #686868; 
+  background: rgba(202, 202, 202, 0.432); 
 }
+
 
 #root,
 body,
