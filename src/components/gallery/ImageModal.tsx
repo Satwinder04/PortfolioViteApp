@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion} from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ImageModalProps {
   images: string[];

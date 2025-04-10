@@ -12,7 +12,6 @@ type GallerySectionProps = {
 
 const Gallery: React.FC<GallerySectionProps> = ({
   isGalleryInView,
-  isMobile,
   backgroundGradient,
   isModalOpen,
   setIsModalOpen
