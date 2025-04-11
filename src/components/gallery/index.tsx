@@ -1,6 +1,7 @@
 import { motion, useAnimationControls } from "framer-motion";
 import { useEffect, useState } from "react";
 import ImageModal from "./ImageModal";
+import { useLenis } from "@studio-freight/react-lenis";
 
 type GallerySectionProps = {
   isGalleryInView: boolean;
@@ -18,6 +19,17 @@ const Gallery: React.FC<GallerySectionProps> = ({
 }) => {
   const galleryControls = useAnimationControls();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (isModalOpen) {
+      lenis?.stop();
+      document.documentElement.style.overflowY = "hidden";
+    } else {
+      lenis?.start();
+      document.documentElement.style.overflowY = "auto";
+    }
+  }, [isModalOpen, lenis]);
 
   // Define image data with correct paths and types
   const galleryImages = [
@@ -30,6 +42,15 @@ const Gallery: React.FC<GallerySectionProps> = ({
     { src: "./img/portfolio/7.png", span: 1 },
     { src: "./img/portfolio/8.jpg", span: 1 },
     { src: "./img/portfolio/9.jpg", span: 2 },
+    { src: "./img/portfolio/13.jpg", span: 2 },
+    { src: "./img/portfolio/10.jpg", span: 1 },
+    { src: "./img/portfolio/11.jpg", span: 1 },
+    { src: "./img/portfolio/17.jpg", span: 2 },
+    { src: "./img/portfolio/18.jpg", span: 2 },
+    { src: "./img/portfolio/19.png", span: 1 },
+    { src: "./img/portfolio/15.jpg", span: 1 },
+    { src: "./img/portfolio/14.jpg", span: 1 },
+    { src: "./img/portfolio/16.jpg", span: 1 },
   ];
 
   useEffect(() => {
@@ -151,6 +172,7 @@ const Gallery: React.FC<GallerySectionProps> = ({
 };
 
 export default Gallery;
+
 
 
 
