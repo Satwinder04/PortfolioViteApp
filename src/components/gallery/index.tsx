@@ -31,27 +31,35 @@ const Gallery: React.FC<GallerySectionProps> = ({
     }
   }, [isModalOpen, lenis]);
 
-  // Define image data with correct paths and types
+  // Define image data with both thumbnail and full-size paths
   const galleryImages = [
-    { src: "./img/portfolio/1.jpg", span: 1 },
-    { src: "./img/portfolio/2.jpg", span: 1 },
-    { src: "./img/portfolio/3.jpg", span: 1 },
-    { src: "./img/portfolio/4.jpeg", span: 1 },
-    { src: "./img/portfolio/12.jpg", span: 2 },
-    { src: "./img/portfolio/6.jpg", span: 2 },
-    { src: "./img/portfolio/7.png", span: 1 },
-    { src: "./img/portfolio/8.jpg", span: 1 },
-    { src: "./img/portfolio/9.jpg", span: 2 },
-    { src: "./img/portfolio/13.jpg", span: 2 },
-    { src: "./img/portfolio/10.jpg", span: 1 },
-    { src: "./img/portfolio/11.jpg", span: 1 },
-    { src: "./img/portfolio/17.jpg", span: 2 },
-    { src: "./img/portfolio/18.jpg", span: 2 },
-    { src: "./img/portfolio/19.png", span: 1 },
-    { src: "./img/portfolio/15.jpg", span: 1 },
-    { src: "./img/portfolio/14.jpg", span: 1 },
-    { src: "./img/portfolio/16.jpg", span: 1 },
+    { src: "./img/portfolio/1.jpg", thumb: "./img/portfolio/thumbnails/1.jpg", span: 1 },
+    { src: "./img/portfolio/2.jpg", thumb: "./img/portfolio/thumbnails/2.jpg", span: 1 },
+    { src: "./img/portfolio/3.jpg", thumb: "./img/portfolio/thumbnails/3.jpg", span: 1 },
+    { src: "./img/portfolio/4.jpeg", thumb: "./img/portfolio/thumbnails/4.jpeg", span: 1 },
+    { src: "./img/portfolio/12.jpg", thumb: "./img/portfolio/thumbnails/12.jpg", span: 2 },
+    { src: "./img/portfolio/6.jpg", thumb: "./img/portfolio/thumbnails/6.jpg", span: 2 },
+    { src: "./img/portfolio/7.png", thumb: "./img/portfolio/thumbnails/7.png", span: 1 },
+    { src: "./img/portfolio/8.jpg", thumb: "./img/portfolio/thumbnails/8.jpg", span: 1 },
+    { src: "./img/portfolio/9.jpg", thumb: "./img/portfolio/thumbnails/9.jpg", span: 2 },
+    { src: "./img/portfolio/13.jpg", thumb: "./img/portfolio/thumbnails/13.jpg", span: 2 },
+    { src: "./img/portfolio/10.jpg", thumb: "./img/portfolio/thumbnails/10.jpg", span: 1 },
+    { src: "./img/portfolio/11.jpg", thumb: "./img/portfolio/thumbnails/11.jpg", span: 1 },
+    { src: "./img/portfolio/17.jpg", thumb: "./img/portfolio/thumbnails/17.jpg", span: 2 },
+    { src: "./img/portfolio/18.jpg", thumb: "./img/portfolio/thumbnails/18.jpg", span: 2 },
+    { src: "./img/portfolio/19.png", thumb: "./img/portfolio/thumbnails/19.png", span: 1 },
+    { src: "./img/portfolio/15.jpg", thumb: "./img/portfolio/thumbnails/15.jpg", span: 1 },
+    { src: "./img/portfolio/14.jpg", thumb: "./img/portfolio/thumbnails/14.jpg", span: 1 },
+    { src: "./img/portfolio/16.jpg", thumb: "./img/portfolio/thumbnails/16.jpg", span: 1 },
   ];
+
+  // Preload full-size images
+  useEffect(() => {
+    galleryImages.forEach(image => {
+      const img = new Image();
+      img.src = image.src;
+    });
+  }, []);
 
   useEffect(() => {
     if (isGalleryInView) {
@@ -129,13 +137,13 @@ const Gallery: React.FC<GallerySectionProps> = ({
                   index === 5 || index === 6 ? 'h-[350px]' :
                   'h-[300px]'
                 }
-                
               `}
             >
               <img 
-                src={image.src}
+                src={image.thumb}
                 className="w-full h-full object-cover hover:scale-105 transform transition-transform duration-300"
                 alt={`Gallery image ${index + 1}`}
+                loading="lazy"
               />
             </div>
           ))}
@@ -150,16 +158,17 @@ const Gallery: React.FC<GallerySectionProps> = ({
               className="bg-gray-200 rounded-2xl overflow-hidden h-[250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
             >
               <img 
-                src={image.src}
+                src={image.thumb}
                 className="w-full h-full object-cover"
                 alt={`Gallery image ${index + 1}`}
+                loading="lazy"
               />
             </div>
           ))}
         </div>
 
         <ImageModal
-          images={galleryImages.map(img => img.src)}
+          images={galleryImages} // Pass the full image objects instead of just src
           currentIndex={currentImageIndex}
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
@@ -172,6 +181,8 @@ const Gallery: React.FC<GallerySectionProps> = ({
 };
 
 export default Gallery;
+
+
 
 
 

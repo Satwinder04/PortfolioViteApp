@@ -2,7 +2,7 @@ import { motion} from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ImageModalProps {
-  images: string[];
+  images: Array<{ src: string; thumb: string; span?: number }>;
   currentIndex: number;
   isOpen: boolean;
   onClose: () => void;
@@ -45,7 +45,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.2 }}
-          src={images[currentIndex]}
+          src={images[currentIndex].src} // Access the src property from the image object
           className="max-h-[90vh] max-w-[90vw] object-contain"
           onClick={(e) => e.stopPropagation()}
         />
@@ -65,3 +65,5 @@ const ImageModal: React.FC<ImageModalProps> = ({
 };
 
 export default ImageModal;
+
+
