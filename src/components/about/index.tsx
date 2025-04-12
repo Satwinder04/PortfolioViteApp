@@ -68,9 +68,10 @@ const About: React.FC<AboutSectionProps> = ({
         <motion.h1
           variants={fadeInUpVariants}
           custom={0}
-          className={`khula-semibold ${isMobile ? "text-4xl" : "text-6xl"}`}
+          className={`khula-semibold ${isMobile ? "text-4xl" : "text-6xl text-justify"}`}
         >
-          Every interaction is designed to be intuitive and seamless, ensuring users can navigate effortlessly without frustration.
+          Every interaction is designed to be intuitive and seamless, ensuring
+          users can navigate effortlessly without frustration.
         </motion.h1>
 
         <motion.div
@@ -79,7 +80,7 @@ const About: React.FC<AboutSectionProps> = ({
           className={`mt-[10vh] ${isMobile && "mt-8"}`}
         >
           <p className="text-gray-3 poppins-light-italic ml-2 mb-1 select-none">
-          Oh, Hello there!
+            Oh, Hello there!
           </p>
           <motion.hr
             variants={lineVariants}
@@ -87,7 +88,9 @@ const About: React.FC<AboutSectionProps> = ({
           ></motion.hr>
         </motion.div>
         <div
-          className={`flex justify-between flex-row mt-16 ${isMobile && "mt-8 flex-col"}`}
+          className={`flex justify-between flex-row mt-16 ${
+            isMobile && "mt-8 flex-col"
+          }`}
         >
           <div className="flex flex-col w-1/2">
             <motion.h2
@@ -95,7 +98,7 @@ const About: React.FC<AboutSectionProps> = ({
               custom={2}
               className="khula-light text-5xl text-nowrap"
             >
-            I'm
+              I'm
             </motion.h2>
             <motion.h2
               variants={fadeInUpVariants}
@@ -119,10 +122,13 @@ const About: React.FC<AboutSectionProps> = ({
             )}
           </div>
           <div
-            className={`flex flex-col gap-y-4 w-1/2 khula-light text-2xl ${isMobile && "mt-8 text-lg w-full"}`}
+            className={`flex flex-col gap-y-4 w-1/2 khula-light text-2xl ${
+              isMobile && "mt-8 text-lg w-full"
+            }`}
           >
-            <motion.p variants={fadeInUpVariants} custom={4}>
-            I am a passionate Quality Engineer dedicated to ensuring the highest standards of functionality, performance, and quality in web applications. I specialize in identifying issues early to enhance the user experience and reliability, ensuring seamless and error-free applications.
+            <motion.p variants={fadeInUpVariants} custom={4} className="text-justify">
+              I'm a passionate frontend web developer dedicated to turning ideas into creative solutions. I specialize in creating seamless and intuitive user experiences. I focus on delivering high- quality,
+              scalable results that drive positive user experiences.
             </motion.p>
             {/* <motion.p variants={fadeInUpVariants} custom={4}>
               I'm a passionate web developer dedicated to

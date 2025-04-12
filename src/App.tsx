@@ -165,7 +165,7 @@ function App() {
                 textShadow: "0px 0px 6px rgba(255,255,255,0.25)",
               }}
             >
-              Automating tests to ensure {" "}
+              COLLABORATING TO MERGE {" "}
               <motion.span
                 style={{
                   backgroundImage: useTransform(
@@ -178,9 +178,9 @@ function App() {
                   color: "transparent",
                 }}
               >
-                quality 
+                CREATIVITY
               </motion.span>{" "}
-              and reliability.
+              WITH FUNCTIONALITY.
             </motion.h1>
             <motion.p
               className="poppins-regular text-lg mt-4 max-w-[390px] text-gray-2 max-sm:text-[4vw] px-4 text-center leading-[123%]"
@@ -195,7 +195,7 @@ function App() {
                 opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
               }}
             >
-             Passionate automation tester ensuring quality through efficient testing.
+             Passionate web designer delivering impactful user experiences.
             </motion.p>
           </motion.div>
         </motion.div>
