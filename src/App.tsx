@@ -20,6 +20,7 @@ import SectionSpacer from "./components/SectionSpacer";
 import { useIsTouchDevice } from "./hooks/useIsTouchDevice";
 import Loader from "./components/Loader";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import VisitorCounter from './components/VisitorCounter';
 
 function App() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -225,6 +226,7 @@ function App() {
             isMobile={isMobile}
             backgroundGradient={backgroundGradient}
           />
+          <VisitorCounter />
         </div>
       </div>
     </ReactLenis>
