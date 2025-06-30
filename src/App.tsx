@@ -11,7 +11,7 @@ import {
 } from "framer-motion";
 import MouseGradient from "./components/MouseGradient";
 import { debounce } from "lodash";
-import BackgroundSVG from "./components/hero/BackgroundSVG";
+// import BackgroundSVG from "./components/hero/BackgroundSVG";
 import About from "./components/about";
 import { useColorAnimation } from "./hooks/useColorAnimation";
 import Contact from "./components/contact";
@@ -21,11 +21,11 @@ import { useIsTouchDevice } from "./hooks/useIsTouchDevice";
 import Loader from "./components/Loader";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import VisitorCounter from "./components/VisitorCounter";
-import DotGrid from "./components/ui/DotGrid/DotGrid";
+// import DotGrid from "./components/ui/DotGrid/DotGrid";
 import MagnetLines from "./components/ui/MagnetLines/MagnetLines";
 
 function App() {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  // const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const dimensionsRef = useRef({ width: 0, height: 0 });
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ function App() {
         height: window.innerHeight,
       };
       dimensionsRef.current = newDimensions;
-      setDimensions(newDimensions);
+      // setDimensions(newDimensions);
     }, 200),
     []
   );
