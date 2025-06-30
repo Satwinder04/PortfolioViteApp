@@ -20,7 +20,9 @@ import SectionSpacer from "./components/SectionSpacer";
 import { useIsTouchDevice } from "./hooks/useIsTouchDevice";
 import Loader from "./components/Loader";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import VisitorCounter from './components/VisitorCounter';
+import VisitorCounter from "./components/VisitorCounter";
+import DotGrid from "./components/ui/DotGrid/DotGrid";
+import MagnetLines from "./components/ui/MagnetLines/MagnetLines";
 
 function App() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -42,7 +44,7 @@ function App() {
       dimensionsRef.current = newDimensions;
       setDimensions(newDimensions);
     }, 200),
-    [],
+    []
   );
 
   useEffect(() => {
@@ -74,13 +76,13 @@ function App() {
         const interpolateColor = (start: number[], end: number[]): string =>
           start
             .map((channel, i) =>
-              Math.round(channel + (end[i] - channel) * progress),
+              Math.round(channel + (end[i] - channel) * progress)
             )
             .join(", ");
 
         const newGradient = `radial-gradient(circle, rgb(${interpolateColor(
           [17, 17, 17],
-          endColor,
+          endColor
         )}) 0%, rgb(${interpolateColor(startColor, endColor)}) 65%)`;
         backgroundGradient.set(newGradient);
 
@@ -102,7 +104,7 @@ function App() {
         svgOpacity.set(newOpacity);
       });
     },
-    [isMobile],
+    [isMobile]
   );
 
   useMotionValueEvent(scrollYProgress, "change", handleScroll);
@@ -138,12 +140,34 @@ function App() {
           style={{ background: backgroundGradient }}
           className="w-screen overflow-hidden h-screen flex flex-col justify-center items-center "
         >
-          <BackgroundSVG
+          {/* <BackgroundSVG
             width={dimensions.width}
             height={dimensions.height}
             isMobile={isMobile}
             svgOpacity={svgOpacity}
             isLoading={isLoading}
+          /> */}
+          {/* <DotGrid
+            dotSize={2}
+            gap={100}
+            baseColor="#ffffff"
+            activeColor="#5227FF"
+            proximity={160}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
+            
+          /> */}
+          <MagnetLines
+            rows={9}
+            columns={9}
+            containerSize="200vmin"
+            lineColor="#585858"
+            lineWidth="5vmin"
+            lineHeight="0.1vmin"
+            baseAngle={0}
+            style={{ margin: "2rem auto" }}
           />
           <Navbar />
           <motion.div
@@ -160,19 +184,19 @@ function App() {
                   : useTransform(
                       scrollYProgress,
                       [0, 0.5],
-                      ["translateY(0px)", "translateY(-200px)"],
+                      ["translateY(0px)", "translateY(-200px)"]
                     ),
                 opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
                 textShadow: "0px 0px 6px rgba(255,255,255,0.25)",
               }}
             >
-              COLLABORATING TO MERGE {" "}
+              COLLABORATING TO MERGE{" "}
               <motion.span
                 style={{
                   backgroundImage: useTransform(
                     [hue1, hue2],
                     ([h1, h2]) =>
-                      `linear-gradient(90deg, hsl(${h1}, 100%, 50%), hsl(${h2}, 100%, 50%))`,
+                      `linear-gradient(90deg, hsl(${h1}, 100%, 50%), hsl(${h2}, 100%, 50%))`
                   ),
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
@@ -191,12 +215,12 @@ function App() {
                   : useTransform(
                       scrollYProgress,
                       [0, 0.5],
-                      ["translateY(0px)", "translateY(-200px)"],
+                      ["translateY(0px)", "translateY(-200px)"]
                     ),
                 opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
               }}
             >
-             Passionate web designer delivering impactful user experiences.
+              Passionate web designer delivering impactful user experiences.
             </motion.p>
           </motion.div>
         </motion.div>

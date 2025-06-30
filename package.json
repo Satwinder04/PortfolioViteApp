@@ -16,7 +16,7 @@
     "@studio-freight/react-lenis": "^0.0.47",
     "@supabase/supabase-js": "^2.49.4",
     "framer-motion": "^11.3.8",
-    "gsap": "^3.12.5",
+    "gsap": "^3.13.0",
     "is-touch-device": "^1.0.1",
     "lodash": "^4.17.21",
     "lucide-react": "^0.414.0",
