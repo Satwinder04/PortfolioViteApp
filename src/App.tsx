@@ -21,6 +21,7 @@ import { useIsTouchDevice } from "./hooks/useIsTouchDevice";
 import Loader from "./components/Loader";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import VisitorCounter from "./components/VisitorCounter";
+import LikeCounter from "./components/LikeCounter";
 // import DotGrid from "./components/ui/DotGrid/DotGrid";
 import MagnetLines from "./components/ui/MagnetLines/MagnetLines";
 
@@ -251,6 +252,7 @@ function App() {
             backgroundGradient={backgroundGradient}
           />
           <VisitorCounter />
+          <LikeCounter />
         </div>
       </div>
     </ReactLenis>
