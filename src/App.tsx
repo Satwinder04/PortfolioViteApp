@@ -166,7 +166,7 @@ function App() {
             containerSize="200vmin"
             lineColor="#585858"
             lineWidth="5vmin"
-            lineHeight="0.1vmin"
+            lineHeight="0.3vmin"
             baseAngle={0}
             style={{ margin: "2rem auto" }}
           />
