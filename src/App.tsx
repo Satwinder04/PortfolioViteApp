@@ -11,7 +11,7 @@ import {
 } from "framer-motion";
 import MouseGradient from "./components/MouseGradient";
 import { debounce } from "lodash";
-// import BackgroundSVG from "./components/hero/BackgroundSVG";
+import BackgroundSVG from "./components/hero/BackgroundSVG";
 import About from "./components/about";
 import { useColorAnimation } from "./hooks/useColorAnimation";
 import Contact from "./components/contact";
@@ -20,13 +20,9 @@ import SectionSpacer from "./components/SectionSpacer";
 import { useIsTouchDevice } from "./hooks/useIsTouchDevice";
 import Loader from "./components/Loader";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import VisitorCounter from "./components/VisitorCounter";
-import LikeCounter from "./components/LikeCounter";
-// import DotGrid from "./components/ui/DotGrid/DotGrid";
-import MagnetLines from "./components/ui/MagnetLines/MagnetLines";
 
 function App() {
-  // const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const dimensionsRef = useRef({ width: 0, height: 0 });
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -35,7 +31,6 @@ function App() {
 
   const isTouchDevice = useIsTouchDevice();
 
-  // ----- Dimension update ----- //
   const updateDimensions = useCallback(
     debounce(() => {
       const newDimensions = {
@@ -43,7 +38,7 @@ function App() {
         height: window.innerHeight,
       };
       dimensionsRef.current = newDimensions;
-      // setDimensions(newDimensions);
+      setDimensions(newDimensions);
     }, 200),
     []
   );
@@ -55,10 +50,8 @@ function App() {
     return () => window.removeEventListener("resize", updateDimensions);
   }, [updateDimensions]);
 
-  // ----- Scroll animations ----- //
   const { scrollYProgress } = useScroll();
   const backgroundGradient = useMotionValue(
-    // "radial-gradient(circle, #111111 0%, #000000 65%)",
     "#000000"
   );
   const textColor = useMotionValue("#FFFFFF");
@@ -72,7 +65,7 @@ function App() {
           : Math.max(0, Math.min((latest - 0.03) / 0.1, 1));
 
         const startColor = [0, 0, 0];
-        const endColor = [255, 255, 255]; // #FFFFFF
+        const endColor = [255, 255, 255];
 
         const interpolateColor = (start: number[], end: number[]): string =>
           start
@@ -97,9 +90,8 @@ function App() {
           document.documentElement.style.backgroundColor = "#ffffff";
         }
 
-        const txtColor = `rgb(${255 - Math.round(255 * progress)}, ${
-          255 - Math.round(255 * progress)
-        }, ${255 - Math.round(255 * progress)})`;
+        const txtColor = `rgb(${255 - Math.round(255 * progress)}, ${255 - Math.round(255 * progress)
+          }, ${255 - Math.round(255 * progress)})`;
         textColor.set(txtColor);
         const newOpacity = 1 - progress * 3;
         svgOpacity.set(newOpacity);
@@ -110,10 +102,8 @@ function App() {
 
   useMotionValueEvent(scrollYProgress, "change", handleScroll);
 
-  // ----- Color Animation ----- //
   const { hue1, hue2 } = useColorAnimation();
 
-  // ----- Loading Animation ----- //
   const [isLoading, setIsLoading] = useState(true);
 
   const landingSectionVariants = {
@@ -141,35 +131,14 @@ function App() {
           style={{ background: backgroundGradient }}
           className="w-screen overflow-hidden h-screen flex flex-col justify-center items-center "
         >
-          {/* <BackgroundSVG
+          <BackgroundSVG
             width={dimensions.width}
             height={dimensions.height}
             isMobile={isMobile}
             svgOpacity={svgOpacity}
             isLoading={isLoading}
-          /> */}
-          {/* <DotGrid
-            dotSize={2}
-            gap={100}
-            baseColor="#ffffff"
-            activeColor="#5227FF"
-            proximity={160}
-            shockRadius={250}
-            shockStrength={5}
-            resistance={750}
-            returnDuration={1.5}
-            
-          /> */}
-          <MagnetLines
-            rows={9}
-            columns={9}
-            containerSize="200vmin"
-            lineColor="#585858"
-            lineWidth="5vmin"
-            lineHeight="0.3vmin"
-            baseAngle={0}
-            style={{ margin: "2rem auto" }}
           />
+
           <Navbar />
           <motion.div
             initial="hidden"
@@ -183,10 +152,10 @@ function App() {
                 transform: isMobile
                   ? "none"
                   : useTransform(
-                      scrollYProgress,
-                      [0, 0.5],
-                      ["translateY(0px)", "translateY(-200px)"]
-                    ),
+                    scrollYProgress,
+                    [0, 0.5],
+                    ["translateY(0px)", "translateY(-200px)"]
+                  ),
                 opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
                 textShadow: "0px 0px 6px rgba(255,255,255,0.25)",
               }}
@@ -214,10 +183,10 @@ function App() {
                 transform: isMobile
                   ? "none"
                   : useTransform(
-                      scrollYProgress,
-                      [0, 0.5],
-                      ["translateY(0px)", "translateY(-200px)"]
-                    ),
+                    scrollYProgress,
+                    [0, 0.5],
+                    ["translateY(0px)", "translateY(-200px)"]
+                  ),
                 opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
               }}
             >
@@ -251,8 +220,6 @@ function App() {
             isMobile={isMobile}
             backgroundGradient={backgroundGradient}
           />
-          <VisitorCounter />
-          <LikeCounter />
         </div>
       </div>
     </ReactLenis>
