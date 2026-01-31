@@ -5,7 +5,6 @@ import {
   motion,
   useInView,
   useMotionValue,
-  useMotionValueEvent,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -20,6 +19,7 @@ import SectionSpacer from "./components/SectionSpacer";
 import { useIsTouchDevice } from "./hooks/useIsTouchDevice";
 import Loader from "./components/Loader";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { PixelatedCanvas } from "./components/ui/pixelated-canvas";
 
 function App() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -51,56 +51,8 @@ function App() {
   }, [updateDimensions]);
 
   const { scrollYProgress } = useScroll();
-  const backgroundGradient = useMotionValue(
-    "#000000"
-  );
   const textColor = useMotionValue("#FFFFFF");
   const svgOpacity = useMotionValue(1);
-
-  const handleScroll = useCallback(
-    (latest: number) => {
-      requestAnimationFrame(() => {
-        const progress = !isMobile
-          ? Math.max(0, Math.min((latest - 0.1) / 0.1, 1))
-          : Math.max(0, Math.min((latest - 0.03) / 0.1, 1));
-
-        const startColor = [0, 0, 0];
-        const endColor = [255, 255, 255];
-
-        const interpolateColor = (start: number[], end: number[]): string =>
-          start
-            .map((channel, i) =>
-              Math.round(channel + (end[i] - channel) * progress)
-            )
-            .join(", ");
-
-        const newGradient = `radial-gradient(circle, rgb(${interpolateColor(
-          [17, 17, 17],
-          endColor
-        )}) 0%, rgb(${interpolateColor(startColor, endColor)}) 65%)`;
-        backgroundGradient.set(newGradient);
-
-        if (progress < 0.1) {
-          document.body.style.backgroundColor = "#000000";
-          document.getElementById("root")!.style.backgroundColor = "#000000";
-          document.documentElement.style.backgroundColor = "#000000";
-        } else if (progress > 0.3) {
-          document.body.style.backgroundColor = "#ffffff";
-          document.getElementById("root")!.style.backgroundColor = "#ffffff";
-          document.documentElement.style.backgroundColor = "#ffffff";
-        }
-
-        const txtColor = `rgb(${255 - Math.round(255 * progress)}, ${255 - Math.round(255 * progress)
-          }, ${255 - Math.round(255 * progress)})`;
-        textColor.set(txtColor);
-        const newOpacity = 1 - progress * 3;
-        svgOpacity.set(newOpacity);
-      });
-    },
-    [isMobile]
-  );
-
-  useMotionValueEvent(scrollYProgress, "change", handleScroll);
 
   const { hue1, hue2 } = useColorAnimation();
 
@@ -125,29 +77,31 @@ function App() {
     <ReactLenis root>
       <Loader onLoadingComplete={() => setIsLoading(false)} />
 
-      <div style={{ visibility: isLoading ? "hidden" : "visible" }}>
+      <div style={{ visibility: isLoading ? "hidden" : "visible" }} className="text-white">
         <MouseGradient isMobile={isMobile} />
         <motion.div
-          style={{ background: backgroundGradient }}
-          className="w-screen overflow-hidden h-screen flex flex-col justify-center items-center "
+          className="w-screen overflow-hidden min-h-screen sm:h-screen lg:grid grid-cols-1 sm:grid-cols-2 gap-3 flex justify-center"
         >
-          <BackgroundSVG
-            width={dimensions.width}
-            height={dimensions.height}
-            isMobile={isMobile}
-            svgOpacity={svgOpacity}
-            isLoading={isLoading}
-          />
+          {/* <div className="block md:hidden">
+            <BackgroundSVG
+              width={dimensions.width}
+              height={dimensions.height}
+              isMobile={isMobile}
+              svgOpacity={svgOpacity}
+              isLoading={isLoading}
+            />
+          </div> */}
+
 
           <Navbar />
           <motion.div
             initial="hidden"
             animate={isLoading ? "hidden" : "visible"}
             variants={landingSectionVariants}
-            className="flex justify-center items-center relative z-10 flex-col mt-8"
+            className="flex justify-center items-center relative z-10 flex-col px-4 sm:px-0 py-12 sm:py-0 sm:mt-0 mt-20 order-2 sm:order-1"
           >
             <motion.h1
-              className=" md:text-[65px] max-sm:text-[10vw] sm:text-[10vw] max-sm:max-w-sm max-sm:leading-tight text-light khula-regular uppercase w-[732px] text-center leading-[85px]"
+              className="text-[32px] sm:text-[48px] md:text-[65px] leading-tight sm:leading-[85px] text-light khula-regular uppercase text-center w-full max-w-[732px]"
               style={{
                 transform: isMobile
                   ? "none"
@@ -178,7 +132,7 @@ function App() {
               WITH FUNCTIONALITY.
             </motion.h1>
             <motion.p
-              className="poppins-regular text-lg mt-4 max-w-[390px] text-gray-2 max-sm:text-[4vw] px-4 text-center leading-[123%]"
+              className="poppins-regular text-base sm:text-lg mt-4 max-w-[390px] text-gray-2 px-2 sm:px-0 text-center leading-[1.5] sm:leading-[123%]"
               style={{
                 transform: isMobile
                   ? "none"
@@ -193,16 +147,36 @@ function App() {
               Passionate web designer delivering impactful user experiences.
             </motion.p>
           </motion.div>
+          <PixelatedCanvas
+            className="lg:block hidden order-1 sm:order-2"
+            src="/img/portfolio/bg1.png"
+            width={1000}
+            height={900}
+            cellSize={5}
+            dotScale={0.4}
+            shape="circle"
+            backgroundColor="#000"
+            dropoutStrength={0.1}
+            interactive
+            distortionStrength={9}
+            distortionRadius={350}
+            distortionMode="repel"
+            followSpeed={0.1}
+            jitterStrength={100}
+            jitterSpeed={0.3}
+            sampleAverage
+            tintColor=""
+            tintStrength={0.2}
+          />
         </motion.div>
         <div ref={aboutRef} id="about">
           <About
             isAboutInView={useInView(aboutRef, { amount: 0.3 })}
             isMobile={isMobile}
-            backgroundGradient={backgroundGradient}
           />
         </div>
 
-        <SectionSpacer backgroundGradient={backgroundGradient} />
+        <SectionSpacer />
 
         <div ref={projectsRef} id="projects" className="relative">
           <Projects
@@ -210,15 +184,13 @@ function App() {
               amount: isTouchDevice ? 0.1 : 0.3,
             })}
             isMobile={isMobile}
-            backgroundGradient={backgroundGradient}
           />
         </div>
 
-        <div ref={contactRef} id="contact" className="relative">
+        <div ref={contactRef} id="contact" className="relative bg-black">
           <Contact
             isContactInView={useInView(contactRef, { amount: 0.5 })}
             isMobile={isMobile}
-            backgroundGradient={backgroundGradient}
           />
         </div>
       </div>

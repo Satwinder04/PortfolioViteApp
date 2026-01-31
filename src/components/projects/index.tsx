@@ -16,7 +16,6 @@ import { useLenis } from "@studio-freight/react-lenis";
 type ProjectsSectionProps = {
   isProjectsInView: boolean;
   isMobile: boolean;
-  backgroundGradient: MotionValue<string>;
 };
 
 export type Project = {
@@ -56,7 +55,6 @@ const fadeInUpVariants = {
 const Projects: React.FC<ProjectsSectionProps> = ({
   isProjectsInView,
   isMobile,
-  backgroundGradient,
 }) => {
   const galleryRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
@@ -302,7 +300,7 @@ const Projects: React.FC<ProjectsSectionProps> = ({
   return (
     <motion.div
       style={{
-        background: backgroundGradient,
+        background: "#000000",
         zIndex: isOverlayVisible ? 20 : 10,
       }}
       initial="hidden"

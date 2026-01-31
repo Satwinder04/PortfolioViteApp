@@ -109,27 +109,7 @@ const MouseGradient = ({ isMobile }: { isMobile: boolean }) => {
 
   return (
     <>
-      {!isMobile && (
-        <motion.div
-          ref={gradientRef}
-          style={{
-            position: window.innerWidth > 768 ? "fixed" : "absolute",
-            top: "50%",
-            left: "50%",
-            width: `${
-              !isMobile ? Math.min(window.innerWidth, window.innerHeight) : 0
-            }px`,
-            height: `${
-              !isMobile ? Math.min(window.innerWidth, window.innerHeight) : 0
-            }px`,
-            transform: "translate(-50%, -50%)",
-            pointerEvents: "none",
-            zIndex: 0,
-            opacity: gradientOpacity,
-            background: `radial-gradient(circle, rgba(190, 190, 255, 0.06) 0%, transparent 50%)`,
-          }}
-        />
-      )}
+     
 
       <div>
         {window.innerWidth > 768 && (

@@ -1,16 +1,8 @@
-import { MotionValue, motion } from "framer-motion";
-
-export default function SectionSpacer({
-  backgroundGradient,
-  // height,
-}: {
-  backgroundGradient: MotionValue<string>;
-  // height: number;
-}) {
+export default function SectionSpacer() {
   return (
-    <motion.div
-      style={{ background: backgroundGradient  }}
+    <div
+      style={{ background: "#000000" }}
       className="w-screen border-none outline-none"
-    ></motion.div>
+    ></div>
   );
 }

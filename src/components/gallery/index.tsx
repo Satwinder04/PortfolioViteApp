@@ -73,13 +73,13 @@ const Gallery: React.FC<GallerySectionProps> = ({
   };
 
   const handlePrevious = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === 0 ? galleryImages.length - 1 : prev - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentImageIndex((prev) => 
+    setCurrentImageIndex((prev) =>
       prev === galleryImages.length - 1 ? 0 : prev + 1
     );
   };
@@ -87,7 +87,7 @@ const Gallery: React.FC<GallerySectionProps> = ({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isModalOpen) return;
-      
+
       if (e.key === "ArrowLeft") handlePrevious();
       if (e.key === "ArrowRight") handleNext();
       if (e.key === "Escape") setIsModalOpen(false);
@@ -116,30 +116,31 @@ const Gallery: React.FC<GallerySectionProps> = ({
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <motion.h2 
+          <motion.h2
             className="khula-regular text-black text-5xl max-sm:text-3xl tracking-tight mt-20 "
           >
             Achievements
           </motion.h2>
+
+        
         </motion.div>
 
         {/* Desktop Layout */}
         <div className="hidden md:grid grid-cols-3 gap-4 mt-10">
           {galleryImages.map((image, index) => (
-            <div 
+            <div
               key={index}
               onClick={() => handleImageClick(index)}
               className={`
                 bg-gray-200 rounded-2xl overflow-hidden cursor-pointer
                 ${image.span === 2 ? 'col-span-2' : ''}
-                ${
-                  index === 3 || index === 4 ? 'h-[400px]' :
+                ${index === 3 || index === 4 ? 'h-[400px]' :
                   index === 5 || index === 6 ? 'h-[350px]' :
-                  'h-[300px]'
+                    'h-[300px]'
                 }
               `}
             >
-              <img 
+              <img
                 src={image.thumb}
                 className="w-full h-full object-cover hover:scale-105 transform transition-transform duration-300"
                 alt={`Gallery image ${index + 1}`}
@@ -152,12 +153,12 @@ const Gallery: React.FC<GallerySectionProps> = ({
         {/* Mobile Layout */}
         <div className="md:hidden grid grid-cols-1 gap-4">
           {galleryImages.map((image, index) => (
-            <div 
+            <div
               key={index}
               onClick={() => handleImageClick(index)}
               className="bg-gray-200 rounded-2xl overflow-hidden h-[250px] cursor-pointer transform transition-transform duration-300 hover:scale-105"
             >
-              <img 
+              <img
                 src={image.thumb}
                 className="w-full h-full object-cover"
                 alt={`Gallery image ${index + 1}`}
@@ -168,7 +169,7 @@ const Gallery: React.FC<GallerySectionProps> = ({
         </div>
 
         <ImageModal
-          images={galleryImages} // Pass the full image objects instead of just src
+          images={galleryImages} 
           currentIndex={currentImageIndex}
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}

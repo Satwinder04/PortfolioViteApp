@@ -1,4 +1,4 @@
-import { MotionValue, motion, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import Magnetic from "../Magnetic";
@@ -6,7 +6,6 @@ import Magnetic from "../Magnetic";
 type ContactSectionProps = {
   isContactInView: boolean;
   isMobile: boolean;
-  backgroundGradient: MotionValue<string>;
 };
 
 const fadeInUpVariants = {
@@ -42,8 +41,8 @@ const Contact: React.FC<ContactSectionProps> = ({
   return (
     <motion.div
       animate={contactControls}
-      initial={"hidden"}
-      className={`w-screen contact-bg ${isMobile ? "before:bg-none after:bg-none" : "before:block after:block"} min-h-screen overflow-hidden flex flex-col justify-end items-center gap-y-4 relative z-[2]`}
+      
+      className={`w-screen min-h-screen overflow-hidden flex flex-col justify-end items-center gap-y-4 relative z-[10]`}
     >
       <motion.h2
         custom={0}
@@ -75,7 +74,7 @@ const Contact: React.FC<ContactSectionProps> = ({
             }}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex gap-x-2 rounded-full border-dark border-2 px-2 py-1"
+            className="flex gap-x-2 rounded-full border-2 p-2 px-6 border-white/10"
           >
             <Mail />
             Email
@@ -94,7 +93,7 @@ const Contact: React.FC<ContactSectionProps> = ({
           <a
             href="https://github.com/Satwinder04"
             target="_blank"
-            className="flex gap-x-2 rounded-full border-dark border-2 px-2 py-1"
+            className="flex gap-x-2 rounded-full border-2 p-2 px-6 border-white/10"
           >
             <Github/>
             GitHub
@@ -104,7 +103,7 @@ const Contact: React.FC<ContactSectionProps> = ({
           <a
             href="https://www.linkedin.com/in/satwindersalan/"
             target="_blank"
-            className="flex gap-x-2 rounded-full border-dark border-2 px-2 py-1"
+            className="flex gap-x-2 rounded-full border-2 p-2 px-6 border-white/10"
           >
             <Linkedin />
             LinkedIn

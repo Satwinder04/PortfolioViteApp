@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./assets/globals.scss";
 import Redirect from "./components/Redirect.tsx";
 import GalleryPage from "./pages/GalleryPage.tsx";
+import Testpage from "./components/testPage/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,12 @@ const router = createBrowserRouter([
     path: "/gallery",
     element: <GalleryPage />,
   },
+  
+  {
+    path: "/test",
+    element: <Testpage />,
+  },
+
   {
     path: "*",
     element: <Redirect />,

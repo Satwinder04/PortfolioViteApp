@@ -1,4 +1,4 @@
-import { MotionValue, useAnimationControls, motion } from "framer-motion";
+import { useAnimationControls, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import Magnetic from "../Magnetic";
@@ -7,7 +7,6 @@ import { useLenis } from "@studio-freight/react-lenis";
 type AboutSectionProps = {
   isAboutInView: boolean;
   isMobile: boolean;
-  backgroundGradient: MotionValue<string>;
 };
 
 const fadeInUpVariants = {
@@ -37,7 +36,6 @@ const lineVariants = {
 const About: React.FC<AboutSectionProps> = ({
   isAboutInView,
   isMobile,
-  backgroundGradient,
 }) => {
   const aboutControls = useAnimationControls();
 
@@ -57,7 +55,7 @@ const About: React.FC<AboutSectionProps> = ({
 
   return (
     <motion.div
-      style={{ background: backgroundGradient }}
+      style={{ background: "#000000" }}
       className="w-screen min-h-screen overflow-hidden flex justify-center items-center relative z-10"
     >
       <motion.div

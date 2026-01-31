@@ -41,9 +41,9 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
         {isOpen && (
           <motion.div
             key="backdrop"
-            className="fixed inset-0 bg-black z-50"
+            className="fixed inset-0 bg-white z-50 backdrop-blur-3xl!"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
+           animate={{ opacity:0.1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={onClose}
@@ -52,7 +52,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
       </AnimatePresence>
 
       <motion.div
-        className="absolute top-0 right-0 w-1/3 max-2xl:w-1/2 max-xl:w-2/3 max-md:w-full h-full bg-white z-[100] flex flex-col p-6 overflow-y-auto max-w-screen-md"
+        className="absolute top-0 right-0 w-1/3 max-2xl:w-1/2 max-xl:w-2/3 max-md:w-full h-full bg-black z-[100] flex flex-col p-6 overflow-y-auto max-w-screen-md text-white"
         initial="initial"
         animate={"animate"}
         exit="exit"
@@ -71,7 +71,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
 
       {/* Navigation Menu */}
       <motion.div
-        className="fixed right-0 h-screen w-1/3 max-2xl:w-1/2 max-xl:w-2/3 max-md:w-full z-[100] flex flex-col p-6 justify-center max-w-screen-md bg-white overflow-y-auto"
+        className="fixed right-0 h-screen w-1/3 max-2xl:w-1/2 max-xl:w-2/3 max-md:w-full z-[100] flex flex-col p-6 justify-center max-w-screen-md bg-black text-white overflow-y-auto"
         initial="initial"
         animate="animate"
         exit="exit"
@@ -103,7 +103,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isOpen, onClose }) => {
           transition={{ delay: 0.2, duration: 0.3 }}
         >
           <button
-            className="fixed top-6 right-6 z-40 px-4 py-2 text-dark text-xl poppins-regular flex flex-row gap-x-2 items-center pl-20"
+            className="fixed top-6 right-6 z-40 px-4 py-2 text-dark text-xl poppins-regular flex flex-row gap-x-2 items-center pl-20 text-white"
             onClick={onClose}
           >
             <X size={32} />
