@@ -76,7 +76,7 @@ const GalleryPage = () => {
           )}
         </button>
 
-        <MouseGradient isMobile={isMobile} />
+        <MouseGradient />
         <Gallery 
           isGalleryInView={true} 
           isMobile={isMobile} 

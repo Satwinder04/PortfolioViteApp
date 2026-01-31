@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import {
-  MotionValue,
   motion,
   AnimatePresence,
   useSpring,

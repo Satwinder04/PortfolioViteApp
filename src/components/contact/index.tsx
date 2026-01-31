@@ -23,7 +23,6 @@ const fadeInUpVariants = {
 
 const Contact: React.FC<ContactSectionProps> = ({
   isContactInView,
-  isMobile,
 }) => {
   const contactControls = useAnimationControls();
 

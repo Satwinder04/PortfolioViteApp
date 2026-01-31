@@ -2,18 +2,16 @@ import { useState, useEffect, useRef } from "react";
 import { useSpring, animated, config } from "react-spring";
 import NavMenu from "./NavMenu";
 import { Equal } from "lucide-react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll } from "framer-motion";
 import gsap from "gsap";
 
-const MouseGradient = ({ isMobile }: { isMobile: boolean }) => {
+const MouseGradient = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [textColor, setTextColor] = useState<"white" | "transparent">("white");
   const gradientRef = useRef<HTMLDivElement>(null);
   const animation = useRef<gsap.core.Tween | null>(null);
 
-  const { scrollYProgress, scrollY } = useScroll();
-
-  const gradientOpacity = useTransform(scrollY, [0, 200], [1, 0]);
+  const { scrollYProgress } = useScroll();
 
   const [buttonProps, setButtonProps] = useSpring(() => ({
     color: "rgb(255, 255, 255)",

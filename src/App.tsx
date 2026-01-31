@@ -4,13 +4,10 @@ import Navbar from "./components/hero/Navbar";
 import {
   motion,
   useInView,
-  useMotionValue,
   useScroll,
   useTransform,
 } from "framer-motion";
-import MouseGradient from "./components/MouseGradient";
 import { debounce } from "lodash";
-import BackgroundSVG from "./components/hero/BackgroundSVG";
 import About from "./components/about";
 import { useColorAnimation } from "./hooks/useColorAnimation";
 import Contact from "./components/contact";
@@ -22,7 +19,6 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import { PixelatedCanvas } from "./components/ui/pixelated-canvas";
 
 function App() {
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const dimensionsRef = useRef({ width: 0, height: 0 });
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -38,7 +34,6 @@ function App() {
         height: window.innerHeight,
       };
       dimensionsRef.current = newDimensions;
-      setDimensions(newDimensions);
     }, 200),
     []
   );
@@ -51,8 +46,6 @@ function App() {
   }, [updateDimensions]);
 
   const { scrollYProgress } = useScroll();
-  const textColor = useMotionValue("#FFFFFF");
-  const svgOpacity = useMotionValue(1);
 
   const { hue1, hue2 } = useColorAnimation();
 
@@ -78,7 +71,6 @@ function App() {
       <Loader onLoadingComplete={() => setIsLoading(false)} />
 
       <div style={{ visibility: isLoading ? "hidden" : "visible" }} className="text-white">
-        <MouseGradient isMobile={isMobile} />
         <motion.div
           className="w-screen overflow-hidden min-h-screen sm:h-screen lg:grid grid-cols-1 sm:grid-cols-2 gap-3 flex justify-center"
         >
